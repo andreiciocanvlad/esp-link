@@ -265,9 +265,11 @@ serbridgeReset()
 #ifdef SERBR_DBG
     os_printf("MCU reset gpio%d\n", mcu_reset_pin);
 #endif
-    GPIO_OUTPUT_SET(mcu_reset_pin, 0);
+    
+	GPIO_OUTPUT_SET(mcu_reset_pin, mcu_reset_pin^1);
     os_delay_us(2000L); // esp8266 needs at least 1ms reset pulse, it seems...
-    GPIO_OUTPUT_SET(mcu_reset_pin, 1);
+   // GPIO_OUTPUT_SET(mcu_reset_pin, 1);
+	
   }
 #ifdef SERBR_DBG
   else { os_printf("MCU reset: no pin\n"); }
