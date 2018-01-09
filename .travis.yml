@@ -33,4 +33,4 @@ script:
   - make release
 
 notifications:
-  email: andreiciocanvlad@gmail.com
+  email: none
